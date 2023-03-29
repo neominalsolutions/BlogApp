@@ -19,19 +19,19 @@ namespace BlogApp.Controllers
     public IActionResult Index()
     {
 
-      var post = new Post("Post-1", "İçerik");
-      post.SetPostedBy("Mert");
-      post.AddComment("Mustafa", "Ne Güzel bir makale");
-      post.AddComment("Mustafa", "Ne Güzel bir makale");
-      post.Delete("Mustafa");
+      //var post = new Post("Post-1", "İçerik");
+      //post.SetPostedBy("Mert");
+      //post.AddComment("Mustafa", "Ne Güzel bir makale");
+      //post.AddComment("Mustafa", "Ne Güzel bir makale");
+      //post.Delete("Mustafa");
 
-      // commentleri post üzerinden okuyabilir.
-      post.Commments.ToList();
+      //// commentleri post üzerinden okuyabilir.
+      //post.Commments.ToList();
 
      
 
 
-      var db = new BlogAppContext();
+      //var db = new BlogAppContext();
       // tüm tagleri görmek için
       // db.Tags.ToList();
       // db.Posts.ToList();

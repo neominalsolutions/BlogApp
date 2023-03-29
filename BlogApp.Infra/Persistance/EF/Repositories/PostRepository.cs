@@ -69,7 +69,7 @@ namespace BlogApp.Infra.Persistance.EF.Repositories
     /// <returns></returns>
     public async Task<List<Post>> WhereAsync(Expression<Func<Post, bool>> lamda)
     {// Post ile birlikte Tags,Comments,Category çekilmeli
-      return await _blogAppContext.Posts.AsNoTracking().Where(lamda).ToListAsync();
+      return await _blogAppContext.Posts.Include(x=> x.Category).Include(x=> x.Tags).Include(x=> x.Commments).AsNoTracking().Where(lamda).ToListAsync();
     }
   }
 }

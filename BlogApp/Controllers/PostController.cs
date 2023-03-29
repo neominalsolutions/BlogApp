@@ -33,8 +33,15 @@ namespace BlogApp.Controllers
     }
 
 
+    // categoryName querystring değeri değişecek
     public async Task<IActionResult> List()
     {
+
+      // string categoryName = "kategori2"
+
+      // queryString okuma
+
+      var cName = HttpContext.Request.Query["CategoryName"].ToString();
 
 
 
@@ -43,11 +50,10 @@ namespace BlogApp.Controllers
       //var param = new SqlParameter("@categoryId", 1);
       //var catProViews = _context.PcView.FromSqlRaw("GetProductsWithCategoryName @categoryId", param).ToList();
 
-      var plist = await _postRepository.ListAsync();
+      ViewBag.CategoryName = cName;
 
 
-
-      return View(plist);
+      return View();
     }
 
 

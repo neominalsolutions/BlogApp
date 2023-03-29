@@ -55,6 +55,7 @@ namespace BlogApp.Persistance.EF.Contexts
 
     public DbSet<Tag> Tags { get; set; }
 
+    // View de olsa DbSet ile tanımlarız.
     public DbSet<ProductCategoryView> PcView { get; set; }
 
 
