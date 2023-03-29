@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Domain.Contexts.AppDbContext
+namespace BlogApp.Persistance.EF.Contexts
 {
     public class AppIdentityDbContext
     {

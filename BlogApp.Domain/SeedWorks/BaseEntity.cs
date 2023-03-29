@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Domain.Contexts.SeedWorks
+namespace BlogApp.Domain.SeedWorks
 {
   public abstract class BaseEntity<TKey>: IEntity
   {

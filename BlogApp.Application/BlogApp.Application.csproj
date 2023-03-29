@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlogApp.Domain\BlogApp.Domain.csproj" />
+    <ProjectReference Include="..\BlogApp.Persistance\BlogApp.Persistance.csproj" />
+  </ItemGroup>
+
 </Project>

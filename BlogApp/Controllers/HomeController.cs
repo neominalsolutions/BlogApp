@@ -1,6 +1,7 @@
-﻿using BlogApp.Domain.Contexts.BlogAppContext;
-using BlogApp.Domain.Contexts.BlogAppContext.Entities;
+﻿
+using BlogApp.Domain.Entities;
 using BlogApp.Models;
+using BlogApp.Persistance.EF.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,12 +19,23 @@ namespace BlogApp.Controllers
     public IActionResult Index()
     {
 
-      var post = new Post("Post-1", "İçerik", "Mert");
+      var post = new Post("Post-1", "İçerik");
+      post.SetPostedBy("Mert");
       post.AddComment("Mustafa", "Ne Güzel bir makale");
       post.AddComment("Mustafa", "Ne Güzel bir makale");
       post.Delete("Mustafa");
 
-      //var db = new BlogAppContext();
+      // commentleri post üzerinden okuyabilir.
+      post.Commments.ToList();
+
+     
+
+
+      var db = new BlogAppContext();
+      // tüm tagleri görmek için
+      // db.Tags.ToList();
+      // db.Posts.ToList();
+      // db.Categories.ToList();
       //db.Posts.Add(post);
       //db.SaveChanges();
 
