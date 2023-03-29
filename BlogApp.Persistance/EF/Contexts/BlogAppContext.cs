@@ -1,5 +1,6 @@
 ﻿using BlogApp.Domain.Entities;
 using BlogApp.Persistance.EF.Configurations;
+using BlogApp.Persistance.EF.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -35,6 +36,10 @@ namespace BlogApp.Persistance.EF.Contexts
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+      // view configürasyonu
+      modelBuilder.Entity<ProductCategoryView>().ToView("ProductCategoryView");
+      modelBuilder.Entity<ProductCategoryView>().HasNoKey();
+
 
       modelBuilder.ApplyConfiguration(new PostConfiguration());
 
@@ -49,6 +54,9 @@ namespace BlogApp.Persistance.EF.Contexts
     public DbSet<Category> Categories { get; set; }
 
     public DbSet<Tag> Tags { get; set; }
+
+    public DbSet<ProductCategoryView> PcView { get; set; }
+
 
 
         //public DbSet<Comment> Comments { get; set; }

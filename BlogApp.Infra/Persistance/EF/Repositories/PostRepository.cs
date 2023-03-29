@@ -30,24 +30,20 @@ namespace BlogApp.Infra.Persistance.EF.Repositories
     {
 
       await _blogAppContext.Posts.AddAsync(Entity);
-
-      try
-      {
-        int r = await _blogAppContext.SaveChangesAsync();
-      }
-      catch (Exception ex)
-      {
-
-        throw;
-      }
-
+      await _blogAppContext.SaveChangesAsync();
+     
        
     }
 
 
     public async Task<Post> FindAsync(Expression<Func<Post, bool>> lamda)
     {// Post ile birlikte Tags,Comments,Category çekilmeli
-      return await _blogAppContext.Posts.AsNoTracking().FirstOrDefaultAsync(lamda);
+      return await _blogAppContext.Posts
+        .Include(x=> x.Category)
+        .Include(x=> x.Tags)
+        .Include(x=> x.Commments)
+        .AsNoTracking()
+        .FirstOrDefaultAsync(lamda);
     }
 
     /// <summary>
@@ -58,7 +54,12 @@ namespace BlogApp.Infra.Persistance.EF.Repositories
     {
       // Post ile birlikte Tags,Comments,Category çekilmeli
       // Include ThenInclude yapmamız gerekecek.
-      return await _blogAppContext.Posts.AsNoTracking().ToListAsync();
+      return await _blogAppContext.Posts
+        .Include(x=> x.Category)
+        .Include(x=> x.Tags)
+        .Include(x=> x.Commments)
+        .AsNoTracking()
+        .ToListAsync();
     }
 
     /// <summary>

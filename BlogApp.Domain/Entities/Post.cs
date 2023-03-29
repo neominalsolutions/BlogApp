@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Domain.Entities
 {
+  // EF daha önceki EF core öncesi versiyonlarda Lazy loading olarak çalışırdı.
+  // EF Core da Eager Loading (Explicit Loading) Post ile birlikte benim tanımladığım nesneleri getir. Include()
   // POCO Object
   public class Post : BaseEntity<string>, IDeletedEntity
   {
@@ -16,7 +18,8 @@ namespace BlogApp.Domain.Entities
 
     public string PostedBy { get; private set; } // User Id
 
-    public string? DeletedBy { get; set; }
+    // EF 6.0 ile gelen bu özellik ile string nullable olan değerler ? ile tanımanmaz ise db işlemlerinde hata veriyor.
+    public string? DeletedBy { get; set; } // nullable
     public DateTime? DeletedAt { get; set; }
 
     // FK alanımız
