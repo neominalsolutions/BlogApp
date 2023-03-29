@@ -4,7 +4,7 @@
 
 2.Add-Migration InitializeMigration -Context BlogAppContext -o "EF/Migrations"
 
-3.Update-database
+3.Update-database -Context BlogAppContext
 
 Eğer class lib üzerinden Migration alacak isek aşağıdaki paketide yüklememiz gerekecektir.
 Microsoft.EntityFrameworkCore.Design
