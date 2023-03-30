@@ -1,0 +1,1 @@
+Hata GET /Logging => 200

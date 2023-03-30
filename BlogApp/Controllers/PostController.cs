@@ -4,6 +4,7 @@ using BlogApp.Domain.Entities;
 using BlogApp.Domain.Repositories;
 using BlogApp.Persistance.EF.Contexts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +34,17 @@ namespace BlogApp.Controllers
     }
 
 
+    [HttpGet]
+    public IActionResult PostViewComponent(string? sortBy, string? categoryName, int? tagId, string? searchText )
+    {
+
+      string cname = HttpContext.Request.Query["CategoryName"].ToString();
+      int tagId1 = Convert.ToInt32(HttpContext.Request.Query["tagId"]);
+
+      return ViewComponent("PostList", new { sortBy, categoryName, tagId, searchText });
+    }
+
+
     // categoryName querystring değeri değişecek
     public async Task<IActionResult> List(string categoryName, string tagId)
     {
@@ -42,6 +54,13 @@ namespace BlogApp.Controllers
       // queryString okuma
 
       var cName = HttpContext.Request.Query["CategoryName"].ToString();
+
+
+      // dropdown datalarını viewbag vasıtası göndeririz.
+      ViewBag.SortList = new List<SelectListItem> { new SelectListItem { Text = "A-Z", Value = "asc" }, new SelectListItem { Text = "Z-A", Value = "desc" } };
+
+
+
 
 
 

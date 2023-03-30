@@ -4,6 +4,7 @@
 
 @{
   int tagId = Convert.ToInt32(ViewContext.HttpContext.Request.Query["tagId"]);
+  string searchText = string.Empty;
 }
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -16,14 +17,22 @@
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
       <ul class="navbar-nav flex-grow-1">
 
+
+
+
         @foreach (var item in Model)
         {
           <li class="nav-item">
             <!--/Post/List?categoryName='kategori1'-->
-            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="List" asp-route-categoryName="@item.Name" asp-route-tagId="@tagId">@item.Name.Trim().ToUpper()</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="List" asp-route-searchText="@searchText" asp-route-categoryName="@item.Name" asp-route-tagId="@tagId">@item.Name.Trim().ToUpper()</a>
           </li>
         }
 
+
+        <li class="nav-item">
+          <!--/Post/List?categoryName='kategori1'-->
+          <a class="nav-link text-dark" asp-area="" asp-controller="Logging" asp-action="Index">Loggin Middleware Test Et</a>
+        </li>
 
       </ul>
     </div>

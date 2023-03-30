@@ -18,7 +18,6 @@ namespace BlogApp.Controllers
 
     public IActionResult Index()
     {
-
       //var post = new Post("Post-1", "İçerik");
       //post.SetPostedBy("Mert");
       //post.AddComment("Mustafa", "Ne Güzel bir makale");
