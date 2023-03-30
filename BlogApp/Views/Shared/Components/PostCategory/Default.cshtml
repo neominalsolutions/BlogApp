@@ -2,6 +2,10 @@
 @model List<Category>
 
 
+@{
+  int tagId = Convert.ToInt32(ViewContext.HttpContext.Request.Query["tagId"]);
+}
+
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
   <div class="container-fluid">
     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BlogApp</a>
@@ -16,7 +20,7 @@
         {
           <li class="nav-item">
             <!--/Post/List?categoryName='kategori1'-->
-            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="List" asp-route-categoryName="@item.Name">@item.Name.Trim().ToUpper()</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="List" asp-route-categoryName="@item.Name" asp-route-tagId="@tagId">@item.Name.Trim().ToUpper()</a>
           </li>
         }
 

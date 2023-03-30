@@ -1,11 +1,11 @@
 ﻿@model List<Post>
 
-<div class="card-columns">
+<div class="card-group">
 
   @foreach (var item in Model)
   {
 
-    <div class="card mb-3">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title">@item.Title</h5>
         <p class="card-text">
@@ -44,5 +44,5 @@
     </div>
       }
 
-      </div>
+  </div>
   

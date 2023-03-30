@@ -1,6 +1,8 @@
-﻿using BlogApp.Domain.Repositories;
+﻿using BlogApp.Domain.Entities;
+using BlogApp.Domain.Repositories;
 using BlogApp.Infra.Persistance.EF.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Views.Shared.Components.PostList
 {
@@ -13,17 +15,35 @@ namespace BlogApp.Views.Shared.Components.PostList
       _postRepository = postRepository;
     }
 
-    public async Task<IViewComponentResult> InvokeAsync(string? categoryName)
+    public async Task<IViewComponentResult> InvokeAsync(string? categoryName, int? tagId)
     {
+      var model = new List<Post>();
 
-      if(string.IsNullOrEmpty(categoryName))
+      tagId = (tagId == 0 ? null : tagId);
+
+
+      if(string.IsNullOrEmpty(categoryName) && tagId == null)
       {
-        return View( await _postRepository.ListAsync());
+        model = await _postRepository.ListAsync();
+
+      }
+      else if(string.IsNullOrEmpty(categoryName) && tagId!=null)
+      {
+        model = await _postRepository.WhereAsync(x => x.Tags.Any(x=> x.Id == tagId));
+
+      } else if(!string.IsNullOrEmpty(categoryName) && tagId == null)
+      {
+        model = await _postRepository.WhereAsync(x => EF.Functions.Like(x.Category.Name,categoryName));
+     
+      }
+      else if (!string.IsNullOrEmpty(categoryName) && tagId != null)
+      {
+        model = await _postRepository.WhereAsync(x => EF.Functions.Like(x.Category.Name, categoryName) && x.Tags.Any(x => x.Id == tagId));
+     
       }
 
-      var model = await _postRepository.WhereAsync(x => x.Category.Name == categoryName);
-
       return View(model);
+
     }
   }
 }

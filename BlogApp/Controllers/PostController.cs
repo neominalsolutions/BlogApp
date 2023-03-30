@@ -34,7 +34,7 @@ namespace BlogApp.Controllers
 
 
     // categoryName querystring değeri değişecek
-    public async Task<IActionResult> List()
+    public async Task<IActionResult> List(string categoryName, string tagId)
     {
 
       // string categoryName = "kategori2"

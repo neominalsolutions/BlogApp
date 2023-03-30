@@ -1,6 +1,9 @@
 ﻿
 @{
-    ViewData["Title"] = "List";
+  ViewData["Title"] = "List";
+
+  int tagId = Convert.ToInt32(ViewContext.HttpContext.Request.Query["tagId"]);
+
 }
 
 
@@ -8,10 +11,11 @@
   <div class="row">
     <div class="col-3">
         <!-- Tag List -->
+        <vc:tag-list post-id="null"></vc:tag-list>
       </div>
       <div class="col-9">
       <!-- bu sayfada birden fazla componente yer verilebilir .-->
-      <vc:post-list category-name="@ViewBag.CategoryName"></vc:post-list>
+      <vc:post-list category-name="@ViewBag.CategoryName" tag-id="@tagId"></vc:post-list>
       </div>
   </div>
 </div>
