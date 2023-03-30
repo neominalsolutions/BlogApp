@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp", "BlogApp\BlogApp.csproj", "{9B36AFC5-ACA4-4FF9-AB10-9A2BD33FBC69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp", "BlogApp\BlogApp.csproj", "{9B36AFC5-ACA4-4FF9-AB10-9A2BD33FBC69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Domain", "BlogApp.Domain\BlogApp.Domain.csproj", "{F50FA81C-121F-40DB-9240-F29A7B2639FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Domain", "BlogApp.Domain\BlogApp.Domain.csproj", "{F50FA81C-121F-40DB-9240-F29A7B2639FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Persistance", "BlogApp.Persistance\BlogApp.Persistance.csproj", "{7FCA5BEC-82D0-414F-BF49-17F7D839CFA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Persistance", "BlogApp.Persistance\BlogApp.Persistance.csproj", "{7FCA5BEC-82D0-414F-BF49-17F7D839CFA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Infra", "BlogApp.Infra\BlogApp.Infra.csproj", "{7628F56A-B376-4214-BB57-F8EF11936308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Infra", "BlogApp.Infra\BlogApp.Infra.csproj", "{7628F56A-B376-4214-BB57-F8EF11936308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Application", "BlogApp.Application\BlogApp.Application.csproj", "{DF2C4201-1277-4CD6-A405-741BBE41D062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Application", "BlogApp.Application\BlogApp.Application.csproj", "{DF2C4201-1277-4CD6-A405-741BBE41D062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Messaging", "BlogApp.Messaging\BlogApp.Messaging.csproj", "{FD8C743B-580D-4A77-A2E0-C3444AA63E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Messaging", "BlogApp.Messaging\BlogApp.Messaging.csproj", "{FD8C743B-580D-4A77-A2E0-C3444AA63E95}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{278495B1-FF42-4F8F-AEE2-2023F6B8F90A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FD8C743B-580D-4A77-A2E0-C3444AA63E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD8C743B-580D-4A77-A2E0-C3444AA63E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8C743B-580D-4A77-A2E0-C3444AA63E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{278495B1-FF42-4F8F-AEE2-2023F6B8F90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{278495B1-FF42-4F8F-AEE2-2023F6B8F90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{278495B1-FF42-4F8F-AEE2-2023F6B8F90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{278495B1-FF42-4F8F-AEE2-2023F6B8F90A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

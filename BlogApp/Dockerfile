@@ -8,6 +8,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["BlogApp/BlogApp.csproj", "BlogApp/"]
+COPY ["BlogApp.Application/BlogApp.Application.csproj", "BlogApp.Application/"]
+COPY ["BlogApp.Domain/BlogApp.Domain.csproj", "BlogApp.Domain/"]
+COPY ["BlogApp.Persistance/BlogApp.Persistance.csproj", "BlogApp.Persistance/"]
+COPY ["BlogApp.Infra/BlogApp.Infra.csproj", "BlogApp.Infra/"]
 RUN dotnet restore "BlogApp/BlogApp.csproj"
 COPY . .
 WORKDIR "/src/BlogApp"
