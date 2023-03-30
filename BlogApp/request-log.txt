@@ -1,1 +1,3 @@
 Hata GET /Logging => 200
+Hata Mesajı: The partial view '~/privacyHeader' was not found. The following locations were searched:
+~/privacyHeader from GET /Home/Privacy => 200

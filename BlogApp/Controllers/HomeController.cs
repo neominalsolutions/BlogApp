@@ -45,7 +45,14 @@ namespace BlogApp.Controllers
 
     public IActionResult Privacy()
     {
-      return View();
+      // Control Action Bağımlı model oluşturuduğundan kullanmayı önermiyoruz.
+
+      var model = new PrivacyViewModel();
+      model.Header = new HeaderModel{  HeaderText = "Header"};
+      
+      model.Footer = new FooterModel{ FooterText = "Footer"};
+
+      return View(model);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

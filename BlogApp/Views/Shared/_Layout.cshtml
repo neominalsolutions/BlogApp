@@ -30,6 +30,17 @@
             &copy; 2023 - BlogApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    @{
+      int counter = 1;
+    }
+
+    <!-- partial tag helper ile ilgili bir tanımlama -->
+    <partial name="_ValidationScriptsPartial" model="@counter" />
+
+    <!-- partiallara modeli Controller action üzerideki modelleri kullanrak gönderebiliriz. kendisi gidip bir arka ucu çalışıtarak view yansıtmaz. kendisi bağımsız bir şekilde dinamik içerik ile çalışamaz -->
+    <!-- dinamik veri bağlmamamız gerektiğinde view component daha anlamlı oluyor.-->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

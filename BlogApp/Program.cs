@@ -72,47 +72,46 @@ app.MapControllerRoute( // sayfa ilk açlýþýnda sayfanýn Home/Index yönlendirilme
 
 // 2. hali.
 app.UseClientCrendential();
-
 app.UseLogging();
 
 
 // her bir istek de burasý defalarca kez kontrol edilecek.
 // ara bir yazýlým geliþtiriken useMiddleware tercih ederiz.
-app.Use(async (context, next) =>
-{
+//app.Use(async (context, next) =>
+//{
 
 
 
-  string controllerName = context.Request.RouteValues["Controller"].ToString();
-  string actionName = context.Request.RouteValues["Action"].ToString();
+//  string controllerName = context.Request.RouteValues["Controller"].ToString();
+//  string actionName = context.Request.RouteValues["Action"].ToString();
 
 
 
-  if (controllerName == "Home" && actionName == "Privacy")
-  {
-    // süreci bir sonraki adýma taþýr
-    // context HttpContext
-    // next requestDelegate
+//  if (controllerName == "Home" && actionName == "Privacy")
+//  {
+//    // süreci bir sonraki adýma taþýr
+//    // context HttpContext
+//    // next requestDelegate
 
-    // header'a tr deðeri ekleme
-    context.Request.Headers.Append("lang", "tr-TR");
-
-
-    //
-    if(context.Request.Method == HttpMethod.Get.Method)
-    {
-      // sadece Get isteklerinde ara gir
-    }
-
-    //await next();
-    await context.Response.WriteAsync("<h1>Privacy Page</h1>");
-
-  }
+//    // header'a tr deðeri ekleme
+//    context.Request.Headers.Append("lang", "tr-TR");
 
 
-  await next();
+//    //
+//    if(context.Request.Method == HttpMethod.Get.Method)
+//    {
+//      // sadece Get isteklerinde ara gir
+//    }
 
-});
+//    //await next();
+//    await context.Response.WriteAsync("<h1>Privacy Page</h1>");
+
+//  }
+
+
+//  await next();
+
+//});
 
 
 // en sona yazýlmalý buradan sonra gibi middleware çalýþmaz

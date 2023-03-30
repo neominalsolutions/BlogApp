@@ -1,7 +1,16 @@
-﻿@{
+﻿
+@model PrivacyViewModel
+
+@{
   ViewData["Title"] = "Privacy Policy";
   Layout = null;
 }
 <h1>@ViewData["Title"]</h1>
+
+
+
+<partial name="~/Views/Home/Partials/_privacyHeader.cshtml" model="@Model.Header"></partial>
+
+<partial name="~/Views/Home/Partials/_privacyFooter.cshtml" model="@Model.Footer"></partial>
 
 <p>Use this page to detail your site's privacy policy.</p>
