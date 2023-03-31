@@ -15,10 +15,10 @@
 
       // 2 makina peer to peer habeleşeceğiz zaman header üzerinden bazı bilgileri göndererek, apida ilgili client_id ve client_secret bilgisi var.
 
-      string controllerName = context.Request.RouteValues["Controller"].ToString();
+      var controllerName = context.Request.RouteValues["Controller"];
 
 
-      if(controllerName == "ClientCredential")
+      if(controllerName != null && controllerName.ToString() == "ClientCredential")
       {
         var clientId = context.Request.Headers.Keys.Contains("client_id");
         var clientSecret = context.Request.Headers.Keys.Contains("client_secret");

@@ -6,6 +6,11 @@
       "library": "fontawesome-iconpicker@3.2.0",
       "destination": "wwwroot/lib/fontawesome-iconpicker",
       "provider": "unpkg"
+    },
+    {
+      "library": "react@18.2.0",
+      "destination": "wwwroot/lib/react",
+      "provider": "cdnjs"
     }
   ]
 }

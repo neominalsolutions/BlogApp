@@ -24,6 +24,7 @@
     <ProjectReference Include="..\BlogApp.Application\BlogApp.Application.csproj" />
     <ProjectReference Include="..\BlogApp.Domain\BlogApp.Domain.csproj" />
     <ProjectReference Include="..\BlogApp.Infra\BlogApp.Infra.csproj" />
+    <ProjectReference Include="..\BlogApp.Messaging\BlogApp.Messaging.csproj" />
     <ProjectReference Include="..\BlogApp.Persistance\BlogApp.Persistance.csproj" />
   </ItemGroup>
 

@@ -3,6 +3,7 @@ using BlogApp.Domain.Entities;
 using BlogApp.Models;
 using BlogApp.Persistance.EF.Contexts;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Specialized;
 using System.Diagnostics;
 
 namespace BlogApp.Controllers
@@ -43,7 +44,9 @@ namespace BlogApp.Controllers
       return View();
     }
 
-    public IActionResult Privacy()
+    [HttpGet("privacy/{code?}/{id?}")]
+    // attribute routing
+    public IActionResult Privacy(string? code, string id)
     {
       // Control Action Bağımlı model oluşturuduğundan kullanmayı önermiyoruz.
 

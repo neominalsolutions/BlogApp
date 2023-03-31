@@ -5,6 +5,7 @@ using BlogApp.Domain.Services;
 using BlogApp.Infra.Persistance.EF.Repositories;
 using BlogApp.Middlewares;
 using BlogApp.Persistance.EF.Contexts;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,6 +43,38 @@ builder.Services.AddTransient<LoggingMiddleware>();
 //builder.Services.AddSingleton();
 
 
+#region APIConnectionHTTPClient
+
+builder.Services.AddHttpClient("apiClient", opt =>
+{
+  // Api hangi domainden ayaða kalkacak ise buraya o ismi yazýrz
+  // www.a.api.com
+  opt.BaseAddress =  new Uri("https://localhost:5001");
+});
+
+#endregion
+
+#region CookieBasedAuthentication
+
+builder.Services.AddAuthentication(x =>
+{
+  // Cookies denlen bir þema ile 
+  x.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+  x.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(x => {
+
+  x.LoginPath = "/Account/Login";
+  x.LogoutPath = "/Account/LogOut";
+  x.SlidingExpiration = true;
+  x.ExpireTimeSpan = TimeSpan.FromDays(1);
+  
+  
+  });
+
+#endregion
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,7 +89,7 @@ app.UseHttpsRedirection();// gelen bir http isteðini https'e yönlendiren middlew
 app.UseStaticFiles(); // www root altýndali dosyalarý public yapan middleware, wwwroot altýnda olmayan bir dosya çalýþma esnasýnda wwwroot dosyasý aldýndaymýþ gibi virtual directory açýlabilir.
 
 app.UseRouting(); // {Controller/Action/id} formatýnda gelen isteklerin yönelndirimesini saðlar.
-
+app.UseAuthentication(); // MVC cookie based auth.
 app.UseAuthorization(); // [Authorize] attribute kullanýcý yetki kontrolün cookie üzerindeki claimler ile yönetir.
 
 app.MapControllerRoute( // sayfa ilk açlýþýnda sayfanýn Home/Index yönlendirilmesini saðlar.
@@ -71,8 +104,8 @@ app.MapControllerRoute( // sayfa ilk açlýþýnda sayfanýn Home/Index yönlendirilme
 //app.UseMiddleware<ClientCredentialRequestMiddleware>();
 
 // 2. hali.
-app.UseClientCrendential();
-app.UseLogging();
+//app.UseClientCrendential();
+//app.UseLogging();
 
 
 // her bir istek de burasý defalarca kez kontrol edilecek.
