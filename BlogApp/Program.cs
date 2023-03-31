@@ -104,8 +104,8 @@ app.MapControllerRoute( // sayfa ilk açlýþýnda sayfanýn Home/Index yönlendirilme
 //app.UseMiddleware<ClientCredentialRequestMiddleware>();
 
 // 2. hali.
-//app.UseClientCrendential();
-//app.UseLogging();
+app.UseClientCrendential();
+app.UseLogging();
 
 
 // her bir istek de burasý defalarca kez kontrol edilecek.
